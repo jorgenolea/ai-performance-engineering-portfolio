@@ -1,0 +1,10 @@
+=== Baseline: Individual GEMM Calls ===
+Matrix dimensions: M=32, N=256, K=256, Batch=40
+Time: 0.366 ms
+Performance: 0.46 TFLOPS
+Kernel launches: 40 per iteration
+
+Hardware: NVIDIA L4 (Ada Lovelace, SM89, 23GB)
+Instance: AWS g6.xlarge
+CUDA: 13.2
+Date: 2026-09-09

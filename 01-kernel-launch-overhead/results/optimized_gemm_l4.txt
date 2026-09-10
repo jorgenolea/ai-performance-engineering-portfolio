@@ -1,0 +1,16 @@
+=== Optimized: Batched GEMM (cublasSgemmBatched) ===
+Matrix dimensions: M=32, N=256, K=256, Batch=40
+Time: 0.015 ms
+Performance: 11.03 TFLOPS
+Kernel launches: 1 per iteration (batched)
+
+=== Optimized: Strided Batched GEMM (cublasGemmStridedBatchedEx) ===
+Matrix dimensions: M=32, N=256, K=256, Batch=40
+Time: 0.014 ms
+Performance: 12.05 TFLOPS
+Kernel launches: 1 per iteration (strided, contiguous memory)
+
+Hardware: NVIDIA L4 (Ada Lovelace, SM89, 23GB)
+Instance: AWS g6.xlarge
+CUDA: 13.2
+Date: 2026-09-09
