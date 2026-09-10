@@ -1,0 +1,28 @@
+=== Baseline: Individual GEMM Calls ===
+Matrix dimensions: M=32, N=256, K=256, Batch=400
+Time: 3.258 ms
+Performance: 0.51 TFLOPS
+Kernel launches: 400 per iteration
+
+=== Optimized: Batched GEMM (cublasSgemmBatched) ===
+Matrix dimensions: M=32, N=256, K=256, Batch=400
+Time: 0.524 ms
+Performance: 3.20 TFLOPS
+Kernel launches: 1 per iteration (batched)
+
+=== Optimized: Strided Batched GEMM (cublasGemmStridedBatchedEx) ===
+Matrix dimensions: M=32, N=256, K=256, Batch=400
+Time: 0.523 ms
+Performance: 3.21 TFLOPS
+Kernel launches: 1 per iteration (strided, contiguous memory)
+
+=== PyTorch: Manual loop vs torch.bmm ===
+Manual loop (torch.mm x40): 0.783 ms
+Batched     (torch.bmm):    0.056 ms
+Speedup: 13.91x
+
+Hardware: NVIDIA L4 (Ada Lovelace, SM89, 23GB VRAM)
+Instance: AWS g6.xlarge
+CUDA: 13.2
+PyTorch: 2.5.1+cu121
+Date: 2026-09-09
