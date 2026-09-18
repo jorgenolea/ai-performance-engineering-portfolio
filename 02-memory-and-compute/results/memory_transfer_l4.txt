@@ -1,0 +1,25 @@
+Hardware: NVIDIA L4 (Ada Lovelace, SM 8.9, 23 GB VRAM)
+Instance: AWS g6.xlarge (us-east-1c)
+PyTorch: 2.5.1+cu121 | CUDA Driver: 13.2
+Date: 2026-09-18
+
+Experiment: Pageable vs Pinned Host-to-Device Memory Transfer
+Transfer size: 200 MB (50M float32 elements)
+Warmup: 10 iterations | Measured: 50 iterations
+
+  Pageable memory:  16.006 ms  (13.1 GB/s)
+  Pinned memory:    15.587 ms  (13.5 GB/s)
+  Speedup:          1.03x
+
+Extended at 1000 MB:
+  Pageable memory:  79.671 ms  (13.2 GB/s)
+  Pinned memory:    77.856 ms  (13.5 GB/s)
+  Speedup:          1.02x
+
+B200 reference (bare metal):
+  Pageable:  19.64 ms  (10.2 GB/s)
+  Pinned:     3.65 ms  (54.8 GB/s)
+  Speedup:   5.39x
+
+PCIe 4.0 x16 theoretical max: ~32 GB/s
+Achieved: ~13 GB/s regardless of memory type or transfer size.

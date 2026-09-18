@@ -1,0 +1,12 @@
+Hardware: NVIDIA L4 (Ada Lovelace, SM 8.9)
+L2 cache: 48 MB | TF32 peak: 120 TFLOPS
+Date: 2026-09-18
+
+GPU: NVIDIA L4  |  L2 cache: 48 MB
+      Size      Time    TFLOPS    % Peak   Working Set
+------------------------------------------------------------
+  512x512    0.015ms    18.2T       15%        1 MB
+ 1024x1024   0.088ms    24.4T       20%        4 MB
+ 2048x2048   0.464ms    37.0T       31%       16 MB
+ 4096x4096   5.221ms    26.3T       22%       64 MB  <- L2 spill
+ 8192x8192  41.678ms    26.4T       22%      256 MB  <- L2 spill

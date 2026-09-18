@@ -1,0 +1,22 @@
+Hardware: NVIDIA L4 (Ada Lovelace, SM 8.9, 23 GB VRAM)
+Instance: AWS g6.xlarge (us-east-1c)
+PyTorch: 2.5.1+cu121 | CUDA Driver: 13.2
+Date: 2026-09-18
+
+Experiment: FP32 vs TF32 cuBLAS Matrix Multiply
+Matrix size: 2048x2048 (float32)
+Warmup: 10 iterations | Measured: 50 iterations
+
+  FP32 (TF32 off):  1.183 ms  (14.5 TFLOPS)
+  TF32 (TF32 on):   0.480 ms  (35.8 TFLOPS)
+  Speedup:          2.46x
+
+L4 theoretical peaks:
+  FP32:               31.2 TFLOPS  ->  achieved 46% of peak
+  TF32 (Tensor Core): 120  TFLOPS  ->  achieved 30% of peak
+  FP16 (Tensor Core): 242  TFLOPS
+
+B200 reference:
+  FP32:    0.358 ms  (~47 TFLOPS)
+  TF32:    0.091 ms  (~185 TFLOPS)
+  Speedup: 3.95x
